@@ -6,6 +6,7 @@ import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import AddSettlement from './components/settlements/AddSettlement';
 import SettlementDetails from './components/settlements/SettlementDetails';
+import SettlementMap from './components/map/SettlementMap'
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path='/dashboard'component={Dashboard} />
+            <Route exact path='/'component={SettlementMap} />
             <Route path='/settlement/:id' component={SettlementDetails} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
