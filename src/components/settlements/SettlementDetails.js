@@ -5,20 +5,20 @@ import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
 import moment from 'moment'
 
-const ProjectDetails = (props) => {
-  const { project, auth } = props;
+const SettlementDetails = (props) => {
+  const { settlement, auth } = props;
   if (!auth.uid) return <Redirect to='/signin' /> 
-  if (project) {
+  if (settlement) {
     return (
       <div className="container section project-details">
         <div className="card z-depth-0">
           <div className="card-content">
-            <span className="card-title">{project.title}</span>
-            <p>{project.content}</p>s
+            <span className="card-title">{settlement.title}</span>
+            <p>{settlement.link}</p>s
           </div>
           <div className="card-action grey lighten-4 grey-text">
-            <div>Posted by {project.authorFirstName} {project.authorLastName}</div>
-            <div>{moment(project.createdAt.toDate()).calendar()}</div>
+            <div>Posted by {settlement.profileFirstName} {settlement.profileLastName}</div>
+            <div>{moment(settlement.addedAt.toDate()).calendar()}</div>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@ const ProjectDetails = (props) => {
   } else {
     return (
       <div className="container center">
-        <p>Loading project...</p>
+        <p>Loading settlement...</p>
       </div>
     )
   }
@@ -35,10 +35,10 @@ const ProjectDetails = (props) => {
 const mapStateToProps = (state, ownProps) => {
   // console.log(state);
   const id = ownProps.match.params.id;
-  const projects = state.firestore.data.projects;
-  const project = projects ? projects[id] : null
+  const settlements = state.firestore.data.settlements;
+  const settlement = settlements ? settlements[id] : null
   return {
-    project: project,
+    settlement,
     auth: state.firebase.auth
   }
 }
@@ -46,6 +46,6 @@ const mapStateToProps = (state, ownProps) => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([{
-    collection: 'projects'
+    collection: 'settlements'
   }])
-)(ProjectDetails)
+)(SettlementDetails)
