@@ -29,19 +29,19 @@ class AddSettlement extends Component {
           <h5 className="grey-text text-darken-3">Add a New Settlement</h5>
           <div className="input-field">
             <input type="text" id='title' onChange={this.handleChange} />
-            <label htmlFor="title">Settlement Title</label>
+            <label htmlFor="title">Title</label>
           </div>
           <div className="input-field">
           <input type="text" id='link' onChange={this.handleChange} />
-            <label htmlFor="link">Settlement Link</label>
+            <label htmlFor="link">Link</label>
           </div>
           <div className="input-field">
           <input type="text" id='latitude' onChange={this.handleChange} />
-            <label htmlFor="latitude">Settlement Latitude</label>
+            <label htmlFor="latitude">Latitude</label>
           </div>
           <div className="input-field">
           <input type="text" id='longitude' onChange={this.handleChange} />
-            <label htmlFor="longitude">Settlement Longitude</label>
+            <label htmlFor="longitude">Longitude</label>
           </div>
           <div className="input-field">
             <button className="btn pink lighten-1">Add</button>
