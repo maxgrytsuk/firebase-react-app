@@ -6,7 +6,8 @@ import { Redirect } from 'react-router-dom'
 class AddSettlement extends Component {
   state = {
     title: '',
-    position: '',
+    longitude: '',
+    latitude: '',
     link: ''
   }
   handleChange = (e) => {
@@ -16,7 +17,6 @@ class AddSettlement extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(this.state);
     this.props.addSettlement(this.state);
     this.props.history.push('/dashboard');
   }
@@ -36,12 +36,12 @@ class AddSettlement extends Component {
             <label htmlFor="link">Settlement Link</label>
           </div>
           <div className="input-field">
-          <input type="text" id='longitude' onChange={this.handleChange} />
-            <label htmlFor="longitude">Settlement Longitude</label>
-          </div>
-          <div className="input-field">
           <input type="text" id='latitude' onChange={this.handleChange} />
             <label htmlFor="latitude">Settlement Latitude</label>
+          </div>
+          <div className="input-field">
+          <input type="text" id='longitude' onChange={this.handleChange} />
+            <label htmlFor="longitude">Settlement Longitude</label>
           </div>
           <div className="input-field">
             <button className="btn pink lighten-1">Add</button>
