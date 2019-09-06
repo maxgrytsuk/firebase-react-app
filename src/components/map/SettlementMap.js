@@ -7,7 +7,7 @@ import GoogleMapReact from 'google-map-react'
 const DEFAULT_CENTER = { lat: 49.027500, lng: 31.482780 }; // geographical center of Ukraine
 const DEFAULT_ZOOM = 6;
 
-const MarkerComponent = ({ text }) => <div>{text}</div>;
+const MarkerComponent = ({ text }) => <div style={{color: 'green', backgroundColor: 'white' }}>{text}</div>;
 
 class SettlementMap extends Component {
     render() {
@@ -33,11 +33,6 @@ class SettlementMap extends Component {
                         })}
                     </GoogleMapReact>
                 </div>
-
-
-
-                )}
-
             </div>
         )
     }
